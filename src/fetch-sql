@@ -1,0 +1,13 @@
+SELECT * FROM Homework;
+SELECT * FROM Lesson JOIN Homework ON Lesson.homework_id = Homework.id;
+SELECT * FROM Lesson
+JOIN Homework ON Lesson.homework_id = Homework.id
+ORDER BY Lesson.updatedAt;
+SELECT * FROM Schedule
+JOIN Schedule_Lesson_Relation ON Schedule.id = Schedule_Lesson_Relation.schedule_id
+JOIN Lesson ON Schedule_Lesson_Relation.lesson_id = Lesson.id;
+SELECT Schedule.id, COUNT(Lesson.id) as lesson_count
+FROM Schedule
+LEFT JOIN Schedule_Lesson_Relation ON Schedule.id = Schedule_Lesson_Relation.schedule_id
+LEFT JOIN Lesson ON Schedule_Lesson_Relation.lesson_id = Lesson.id
+GROUP BY Schedule.id;

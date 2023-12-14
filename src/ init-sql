@@ -1,0 +1,33 @@
+1
+
+CREATE TABLE HOMEWORK (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(255),
+	description TEXT
+);
+
+2
+CREATE TABLE Lesson (
+id SERIAL PRIMARY KEY,
+NAME VARCHAR (255),
+updatedAt TIMESTAMP,
+homework_id INTEGER,
+FOREIGN KEY(homework_id) REFERENCES
+Homework(id)
+);
+
+3
+
+CREATE TABLE Schedule(
+id SERIAL PRIMARY KEY,
+name VARCHAR (255),
+updatedAT TIMESTAMP
+);
+CREATE TABLE Schedule_lesson_Relation(
+schedule_id INT,
+lesson_id INT,
+	PRIMARY KEY(schedule_id, lesson_id),
+	FOREIGN KEY(schedule_id) REFERENCES Schedule(id),
+FOREIGN KEY (Lesson_id) REFERENCES
+Lesson(id)
+);
